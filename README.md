@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=5825183&assignment_repo_type=AssignmentRepo)
 # Assignment: React 1 α (5 Points Total)
 
 This assignment is meant to introduce you to more features of JavaScript, along with showing how a React project works. Additionally, this will introduce you to the different features of React, e.g. states, props, more modularized components etc. This project will be the first of a two part React project in which you will further extend your course management application. This application uses a limited quantity of modified data from the UW Madison course information database.
