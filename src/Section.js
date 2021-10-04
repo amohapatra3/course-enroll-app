@@ -3,27 +3,6 @@ import "./App.css";
 import Subsection from "./Subsection.js";
 
 class Section extends React.Component {
-  instructors() {
-    let instructor = [];
-    this.props.sections.forEach((element) => {
-      instructor.push(element.instructor);
-    });
-    return instructor;
-  }
-  number() {
-    let courseNumber = [];
-    this.props.sections.forEach((element) => {
-      courseNumber.push(element.number);
-    });
-    return courseNumber;
-  }
-  getKeys() {
-    return Object.keys(this.props.sections);
-  }
-  getValues() {
-    return Object.values(this.props.sections);
-  }
-
   render() {
     return (
       <div>
@@ -46,6 +25,8 @@ class Section extends React.Component {
             })}
           </ul>
         ))}
+        <h2> Subsections</h2>
+        <Subsection subsection={this.props.sections.subsections} />
       </div>
     );
   }
