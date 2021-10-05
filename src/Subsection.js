@@ -3,6 +3,7 @@ import "./App.css";
 
 class Subsection extends React.Component {
   render() {
+    let l = 0;
     return (
       <div>
         {this.props.data.map((key, index) => (
@@ -13,7 +14,7 @@ class Subsection extends React.Component {
                   <ul>
                     <li key={obj.number}> Number: {obj.number}</li>
                     <li key={obj.location}> Location: {obj.location}</li>
-                    <li> Meeting Times: </li>
+                    <li key={++l}> Meeting Times: </li>
                     {Object.keys(obj.time).map((day, j) => {
                       return (
                         <ul>

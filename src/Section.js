@@ -4,6 +4,7 @@ import Subsection from "./Subsection.js";
 
 class Section extends React.Component {
   render() {
+    let l = 0;
     return (
       <div>
         {this.props.sections.map((key, index) => (
@@ -26,7 +27,7 @@ class Section extends React.Component {
               })}
               <h2> Subsections</h2>
               {key.subsections.length === 0 ? <span>None</span> : null}
-              <Subsection data={this.props.sections} />
+              <Subsection key={++l} data={this.props.sections} />
             </ul>
           </>
         ))}
