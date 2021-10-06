@@ -4,6 +4,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Sidebar from "./Sidebar";
 import CourseArea from "./CourseArea";
+import Cart from "./Cart";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class App extends React.Component {
       allCourses: {},
       filteredCourses: {},
       subjects: [],
+      cart: [],
     };
   }
 
@@ -43,6 +45,22 @@ class App extends React.Component {
     this.setState({ filteredCourses: courses });
   }
 
+  callbackFromCourses = (dataFromCourses) => {
+    this.setState((prevState) => {
+      return { cart: [...prevState.cart, dataFromCourses] };
+    });
+  };
+  callbackFromSections = (dataFromSections) => {
+    this.setState((prevState) => {
+      return { cart: [...prevState.cart, dataFromSections] };
+    });
+    console.log(this.state.cart);
+  };
+  callbackFromSubsections = (dataFromSubsections) => {
+    this.setState((prevState) => {
+      return { cart: [...prevState.cart, dataFromSubsections] };
+    });
+  };
   render() {
     return (
       <>
@@ -72,6 +90,14 @@ class App extends React.Component {
 
           <Tab eventKey="cart" title="Cart" style={{ paddingTop: "5vh" }}>
             <div style={{ marginLeft: "5vw" }}></div>
+            <CourseArea
+              data={this.state.filteredCourses}
+              allData={this.state.allCourses}
+              cartMode={true}
+              callbackFromCourses={this.callbackFromCourses}
+              callbackFromSections={this.callbackFromSections}
+              callbackFromSubsections={this.callbackFromSubsections}
+            />
           </Tab>
         </Tabs>
       </>
@@ -80,3 +106,14 @@ class App extends React.Component {
 }
 
 export default App;
+
+//cart item state app.js
+//pass into cart component cartMode true
+
+//cart component with own state tracking section and subsection
+//state variable inside a component. storing all the data related to component
+//cart state where array initialized. add remove append to state
+//change state rerender component
+//unused
+//hm
+//render buttons in cartmode

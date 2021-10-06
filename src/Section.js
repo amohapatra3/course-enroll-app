@@ -3,13 +3,31 @@ import "./App.css";
 import Subsection from "./Subsection.js";
 
 class Section extends React.Component {
+  addButton(key) {
+    if (this.props.cartMode) {
+      return (
+        <>
+          <button onClick={() => this.addSectionToCart(key)}>
+            Add section to cart
+          </button>{" "}
+          <br /> <br />
+        </>
+      );
+    }
+  }
+  addSectionToCart(key) {
+    console.log(key);
+    this.props.callbackFromSections(key);
+  }
   render() {
-    let l = 0;
+    let m = 0;
+
     return (
       <div>
         {this.props.sections.map((key, index) => (
           <>
-            <h1> Section </h1>
+            <h1> Section</h1>
+            {this.addButton(key)}
             <ul>
               <li key={key.number}> Section Number: {key.number} </li>
               <li key={key.instructor}>Instructor: {key.instructor} </li>
@@ -26,8 +44,16 @@ class Section extends React.Component {
                 );
               })}
               <h2> Subsections</h2>
-              {key.subsections.length === 0 ? <span>None</span> : null}
-              <Subsection key={++l} data={this.props.sections} />
+              {key.subsections.length === 0 ? (
+                <span>None</span>
+              ) : (
+                <Subsection
+                  key={++m}
+                  data={key.subsections}
+                  cartMode={this.props.cartMode}
+                  callbackFromSubsections={this.props.callbackFromSubsections}
+                />
+              )}
             </ul>
           </>
         ))}
@@ -37,3 +63,8 @@ class Section extends React.Component {
 }
 
 export default Section;
+
+//maintain global state as Cart state
+//use function to manipulate state
+//array of objects
+//course name, list of sections, list of subsections

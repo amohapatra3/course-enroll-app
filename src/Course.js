@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion } from "react-bootstrap";
 import "./App.css";
+import CourseArea from "./CourseArea";
 import Section from "./Section";
 
 class Course extends React.Component {
@@ -35,7 +36,21 @@ class Course extends React.Component {
     }
     return requisite;
   }
-
+  addButton() {
+    if (this.props.cartMode) {
+      return (
+        <>
+          <button onClick={() => this.addCourseToCart()}>
+            Add course to cart
+          </button>{" "}
+          <br /> <br />
+        </>
+      );
+    }
+  }
+  addCourseToCart() {
+    this.props.callbackFromCourses(this.props.data);
+  }
   render() {
     return (
       <div>
@@ -45,13 +60,19 @@ class Course extends React.Component {
               {this.props.data.number}: {this.props.data.name}
             </Accordion.Header>
             <Accordion.Body>
+              {this.addButton()}
               Credits: {this.props.data.credits} <br /> <br />
               Description: {this.props.data.description} <br /> <br />
               Requisites: {this.requisites()} <br /> <br />
               Keywords: {this.props.data.keywords.join()} <br /> <br />
-              Subject: {this.props.data.subject} <br />
+              Subject: {this.props.data.subject} <br /> <br />
               <br />
-              <Section sections={this.props.data.sections} />
+              <Section
+                sections={this.props.data.sections}
+                cartMode={this.props.cartMode}
+                callbackFromSections={this.props.callbackFromSections}
+                callbackFromSubsections={this.props.callbackFromSubsections}
+              />
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
@@ -60,3 +81,5 @@ class Course extends React.Component {
   }
 }
 export default Course;
+
+//

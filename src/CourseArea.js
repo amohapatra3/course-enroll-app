@@ -1,26 +1,28 @@
-import React from 'react';
-import './App.css';
-import Course from './Course';
+import React from "react";
+import "./App.css";
+import Course from "./Course";
 
 class CourseArea extends React.Component {
   getCourses() {
     let courses = [];
 
-    for(const course of Object.values(this.props.data)) {
-      courses.push (
-        <Course key={course.name} data={course}/>
-      )
+    for (const course of Object.values(this.props.data)) {
+      courses.push(
+        <Course
+          key={course.name}
+          data={course}
+          cartMode={this.props.cartMode}
+          callbackFromCourses={this.props.callbackFromCourses}
+          callbackFromSections={this.props.callbackFromSections}
+          callbackFromSubsections={this.props.callbackFromSubsections}
+        />
+      );
     }
-
     return courses;
   }
 
   render() {
-    return (
-      <div style={{margin: '5px'}}>
-        {this.getCourses()}
-      </div>
-    )
+    return <div style={{ margin: "5px" }}>{this.getCourses()}</div>;
   }
 }
 
