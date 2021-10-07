@@ -16,7 +16,6 @@ class Section extends React.Component {
     }
   }
   addSectionToCart(key) {
-    console.log(key);
     this.props.callbackFromSections(key);
   }
   render() {

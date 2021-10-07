@@ -48,13 +48,16 @@ class Course extends React.Component {
       );
     }
   }
+  accordionStyle() {
+    return this.props.cartMode ? { maxWidth: "50%" } : null;
+  }
   addCourseToCart() {
     this.props.callbackFromCourses(this.props.data);
   }
   render() {
     return (
       <div>
-        <Accordion>
+        <Accordion style={this.accordionStyle()}>
           <Accordion.Item eventKey={this.props.data.number}>
             <Accordion.Header>
               {this.props.data.number}: {this.props.data.name}

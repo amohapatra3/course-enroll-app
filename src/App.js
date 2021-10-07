@@ -45,22 +45,77 @@ class App extends React.Component {
     this.setState({ filteredCourses: courses });
   }
 
+  callbackFromCart = (dataFromCarts) => {
+    console.log(dataFromCarts);
+    this.setState({ cart: dataFromCarts });
+  };
+
   callbackFromCourses = (dataFromCourses) => {
     this.setState((prevState) => {
-      return { cart: [...prevState.cart, dataFromCourses] };
+      let cartData = {};
+      cartData.courseName = dataFromCourses.name;
+      cartData.courseNumber = dataFromCourses.number;
+      cartData.instructor = "All sections and subsections";
+      cartData.time = {};
+      return { cart: [...prevState.cart, cartData] };
     });
   };
   callbackFromSections = (dataFromSections) => {
-    this.setState((prevState) => {
-      return { cart: [...prevState.cart, dataFromSections] };
+    let cartData = {};
+
+    cartData.instructor = dataFromSections.instructor;
+    cartData.number = dataFromSections.number;
+    cartData.time = dataFromSections.time;
+    cartData.location = dataFromSections.location;
+    cartData.courseName = " ";
+    cartData.courseNumber = " ";
+    this.state.allCourses.map((obj, index) => {
+      Object.keys(obj.sections).forEach((element) => {
+        if (
+          obj.sections[element].instructor === dataFromSections.instructor &&
+          obj.sections[element].location === dataFromSections.location
+        ) {
+          cartData.courseName = obj.name;
+          cartData.courseNumber = obj.number;
+        }
+      });
+
+      return null;
     });
-    console.log(this.state.cart);
+    console.log(cartData.time);
+    this.setState((prevState) => {
+      return { cart: [...prevState.cart, cartData] };
+    });
   };
+
   callbackFromSubsections = (dataFromSubsections) => {
+    let cartData = {};
+    cartData.number = dataFromSubsections.number;
+    cartData.location = dataFromSubsections.location;
+    cartData.time = dataFromSubsections.time;
+    cartData.instructor = " ";
+    cartData.courseName = " ";
+    cartData.courseNumber = " ";
+    Object.values(this.state.allCourses).forEach((element) => {
+      Object.keys(element.sections).forEach((data) => {
+        element.sections[data].subsections.forEach((obj) => {
+          if (
+            obj.location === cartData.location &&
+            obj.number === cartData.number
+          ) {
+            cartData.instructor = element.sections[data].instructor;
+            cartData.courseName = element.name;
+            cartData.courseNumber = element.number;
+          }
+        });
+      });
+    });
+
     this.setState((prevState) => {
-      return { cart: [...prevState.cart, dataFromSubsections] };
+      return { cart: [...prevState.cart, cartData] };
     });
   };
+
   render() {
     return (
       <>
@@ -89,22 +144,30 @@ class App extends React.Component {
           </Tab>
 
           <Tab eventKey="cart" title="Cart" style={{ paddingTop: "5vh" }}>
-            <div style={{ marginLeft: "5vw" }}></div>
-            <CourseArea
-              data={this.state.filteredCourses}
-              allData={this.state.allCourses}
-              cartMode={true}
-              callbackFromCourses={this.callbackFromCourses}
-              callbackFromSections={this.callbackFromSections}
-              callbackFromSubsections={this.callbackFromSubsections}
-            />
+            <div style={{ display: "flex" }}>
+              <CourseArea
+                data={this.state.filteredCourses}
+                allData={this.state.allCourses}
+                cartMode={true}
+                callbackFromCourses={this.callbackFromCourses}
+                callbackFromSections={this.callbackFromSections}
+                callbackFromSubsections={this.callbackFromSubsections}
+              />
+
+              <div>
+                <Cart
+                  data={this.state.filteredCourses}
+                  cart={this.state.cart}
+                  callbackFromCart={this.callbackFromCart}
+                />
+              </div>
+            </div>
           </Tab>
         </Tabs>
       </>
     );
   }
 }
-
 export default App;
 
 //cart item state app.js
@@ -115,5 +178,5 @@ export default App;
 //cart state where array initialized. add remove append to state
 //change state rerender component
 //unused
-//hm
+//hm console.log(Object.keys(obj)).find((key) => obj[key] === dataFromSections)
 //render buttons in cartmode
