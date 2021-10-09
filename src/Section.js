@@ -25,18 +25,19 @@ class Section extends React.Component {
   }
   addSectionToCart(key) {
     this.props.callbackFromSections(key);
-    console.log(this.disableButton);
   }
   disableButton() {
     this.props.cart.map((element, i) => {
       this.props.sections.map((key, index) => {
-        if (element.instructor === key.instructor) {
+        if (element.number === key.number) {
           this.isSectionInCart = true;
         } else {
           this.isSectionInCart = false;
         }
       });
     });
+
+    console.log(this.isSectionInCart);
   }
   render() {
     let m = 0;
