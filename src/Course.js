@@ -53,8 +53,14 @@ class Course extends React.Component {
   }
   disableButton() {
     this.props.cart.map((element, i) => {
-      console.log(element.courseName === this.props.data.name);
-      if (element.courseName === this.props.data.name) {
+      console.log(
+        element.instructor ===
+          "All " + this.props.data.number + " sections and subsections"
+      );
+      if (
+        element.instructor ===
+        "All " + this.props.data.number + " sections and subsections"
+      ) {
         this.isCourseInCart = true;
       } else {
         this.isCourseInCart = false;

@@ -60,7 +60,8 @@ class App extends React.Component {
       let cartData = {};
       cartData.courseName = dataFromCourses.name;
       cartData.courseNumber = dataFromCourses.number;
-      cartData.instructor = "All sections and subsections";
+      cartData.instructor =
+        "All " + cartData.courseNumber + " sections and subsections";
       cartData.time = {};
       return { cart: [...prevState.cart, cartData] };
     });
