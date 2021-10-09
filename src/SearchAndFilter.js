@@ -7,7 +7,7 @@ class SearchAndFilter {
         maximumCredits === "")
     ) {
       return courses.filter((course) =>
-        course.keywords.join().includes(search)
+        course.keywords.join().includes(search.trim())
       );
     }
     if (subject === "All" && search === "") {
@@ -19,7 +19,7 @@ class SearchAndFilter {
     }
     if (subject === "All") {
       return courses
-        .filter((course) => course.keywords.join().includes(search))
+        .filter((course) => course.keywords.join().includes(search.trim()))
         .filter(
           (course) =>
             course.credits >= parseInt(minimumCredits) &&
@@ -41,7 +41,7 @@ class SearchAndFilter {
       maximumCredits === ""
     ) {
       return courses
-        .filter((course) => course.keywords.join().includes(search))
+        .filter((course) => course.keywords.join().includes(search.trim()))
         .filter((course) => course.subject === subject);
     }
     if (search === "") {
@@ -55,7 +55,7 @@ class SearchAndFilter {
     }
     return courses
       .filter((course) => course.subject === subject)
-      .filter((course) => course.keywords.join().includes(search))
+      .filter((course) => course.keywords.join().includes(search.trim()))
       .filter(
         (course) =>
           course.credits >= parseInt(minimumCredits) &&
