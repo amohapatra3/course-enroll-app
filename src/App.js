@@ -50,6 +50,11 @@ class App extends React.Component {
     this.setState({ cart: dataFromCarts });
   };
 
+  resetButton = () => {
+    this.setState((prevState) => {
+      return { resetButton: !prevState.resetButton };
+    });
+  };
   callbackFromCourses = (dataFromCourses) => {
     this.setState((prevState) => {
       let cartData = {};
@@ -82,7 +87,7 @@ class App extends React.Component {
 
       return null;
     });
-    console.log(cartData.time);
+
     this.setState((prevState) => {
       return { cart: [...prevState.cart, cartData] };
     });
@@ -152,6 +157,7 @@ class App extends React.Component {
                 callbackFromCourses={this.callbackFromCourses}
                 callbackFromSections={this.callbackFromSections}
                 callbackFromSubsections={this.callbackFromSubsections}
+                cart={this.state.cart}
               />
 
               <div>
@@ -159,6 +165,7 @@ class App extends React.Component {
                   data={this.state.filteredCourses}
                   cart={this.state.cart}
                   callbackFromCart={this.callbackFromCart}
+                  resetButton={this.resetButton}
                 />
               </div>
             </div>

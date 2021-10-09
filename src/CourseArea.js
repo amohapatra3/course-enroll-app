@@ -15,6 +15,7 @@ class CourseArea extends React.Component {
           callbackFromCourses={this.props.callbackFromCourses}
           callbackFromSections={this.props.callbackFromSections}
           callbackFromSubsections={this.props.callbackFromSubsections}
+          cart={this.props.cart}
         />
       );
     }

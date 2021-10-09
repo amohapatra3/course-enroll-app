@@ -6,7 +6,10 @@ class Subsection extends React.Component {
     if (this.props.cartMode) {
       return (
         <>
-          <button onClick={() => this.addSubsectionToCart(key)}>
+          <button
+            onClick={() => this.addSubsectionToCart(key)}
+            disabled={this.props.disableButton}
+          >
             Add subsection to cart
           </button>{" "}
           <br /> <br />
@@ -14,8 +17,8 @@ class Subsection extends React.Component {
       );
     }
   }
+
   addSubsectionToCart(key) {
-    console.log(key);
     this.props.callbackFromSubsections(key);
   }
   render() {

@@ -1,10 +1,14 @@
 import React from "react";
 import { Accordion } from "react-bootstrap";
 import "./App.css";
-import CourseArea from "./CourseArea";
 import Section from "./Section";
 
 class Course extends React.Component {
+  constructor(props) {
+    super(props);
+    this.courseInCart = false;
+    console.log(this.props.cart);
+  }
   requisites() {
     let requisite = "";
     let j = 0;
@@ -48,6 +52,13 @@ class Course extends React.Component {
       );
     }
   }
+  disableButton() {
+    this.props.cart.map((element, i) => {
+      if (element.courseName === this.props.data.name) {
+        this.isCourseInCart = true;
+      }
+    });
+  }
   accordionStyle() {
     return this.props.cartMode ? { maxWidth: "50%" } : null;
   }
@@ -70,11 +81,14 @@ class Course extends React.Component {
               Keywords: {this.props.data.keywords.join()} <br /> <br />
               Subject: {this.props.data.subject} <br /> <br />
               <br />
+              {this.disableButton()}
               <Section
                 sections={this.props.data.sections}
                 cartMode={this.props.cartMode}
                 callbackFromSections={this.props.callbackFromSections}
                 callbackFromSubsections={this.props.callbackFromSubsections}
+                disableButton={this.isCourseInCart}
+                cart={this.props.cart}
               />
             </Accordion.Body>
           </Accordion.Item>
@@ -85,4 +99,6 @@ class Course extends React.Component {
 }
 export default Course;
 
-//
+//pass contents of cart state from app -> coursearea and so on
+//isCourseDisabled within coyrse.js
+//if course is already in cart, change iscoursedisabled else false

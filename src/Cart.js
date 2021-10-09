@@ -1,10 +1,8 @@
 import React from "react";
-import Course from "./Course";
-import CourseArea from "./CourseArea";
-import { Accordion } from "react-bootstrap";
-import Section from "./Section";
+
 class Cart extends React.Component {
   removeFromCart(item) {
+    this.props.resetButton();
     this.props.callbackFromCart(
       this.props.cart.filter(
         (element) => element.courseNumber !== item.courseNumber
