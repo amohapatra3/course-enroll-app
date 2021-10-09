@@ -46,15 +46,9 @@ class App extends React.Component {
   }
 
   callbackFromCart = (dataFromCarts) => {
-    console.log(dataFromCarts);
     this.setState({ cart: dataFromCarts });
   };
 
-  resetButton = () => {
-    this.setState((prevState) => {
-      return { resetButton: !prevState.resetButton };
-    });
-  };
   callbackFromCourses = (dataFromCourses) => {
     this.setState((prevState) => {
       let cartData = {};

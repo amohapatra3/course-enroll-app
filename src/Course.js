@@ -72,7 +72,6 @@ class Course extends React.Component {
     return this.props.cartMode ? { maxWidth: "50%" } : null;
   }
   addCourseToCart() {
-    this.buttonClicked++;
     this.props.callbackFromCourses(this.props.data);
   }
   render() {
