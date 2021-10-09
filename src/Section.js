@@ -3,9 +3,9 @@ import "./App.css";
 import Subsection from "./Subsection.js";
 
 class Section extends React.Component {
-  constructor(props) {
-    super(props);
-    this.isSectionInCart = false;
+  constructor() {
+    super();
+    this.buttonClicked = 0;
   }
   addButton(key) {
     console.log(this.props.disableButton);
@@ -24,13 +24,14 @@ class Section extends React.Component {
     }
   }
   addSectionToCart(key) {
+    this.buttonClicked++;
     this.props.callbackFromSections(key);
   }
   disableButton() {
     if (this.props.cartMode) {
       this.props.cart.map((element, i) => {
         this.props.sections.map((key, index) => {
-          if (element.location === key.location) {
+          if (element.location === key.location || this.buttonClicked === 1) {
             return true;
           }
           return false;

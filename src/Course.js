@@ -4,9 +4,9 @@ import "./App.css";
 import Section from "./Section";
 
 class Course extends React.Component {
-  constructor(props) {
-    super(props);
-    this.courseInCart = false;
+  constructor() {
+    super();
+    this.buttonClicked = 0;
   }
   requisites() {
     let requisite = "";
@@ -56,7 +56,8 @@ class Course extends React.Component {
       this.props.cart.map((element, i) => {
         if (
           element.instructor ===
-          "All " + this.props.data.number + " sections and subsections"
+            "All " + this.props.data.number + " sections and subsections" ||
+          this.buttonClicked === 1
         ) {
           return true;
         }
@@ -68,6 +69,7 @@ class Course extends React.Component {
     return this.props.cartMode ? { maxWidth: "50%" } : null;
   }
   addCourseToCart() {
+    this.buttonClicked++;
     this.props.callbackFromCourses(this.props.data);
   }
   render() {
