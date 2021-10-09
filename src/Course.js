@@ -43,7 +43,10 @@ class Course extends React.Component {
     if (this.props.cartMode) {
       return (
         <>
-          <button onClick={() => this.addCourseToCart()}>
+          <button
+            onClick={() => this.addCourseToCart()}
+            disabled={this.buttonClicked > 0}
+          >
             Add course to cart
           </button>{" "}
           <br /> <br />

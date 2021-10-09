@@ -8,13 +8,12 @@ class Section extends React.Component {
     this.buttonClicked = 0;
   }
   addButton(key) {
-    console.log(this.props.disableButton);
     if (this.props.cartMode) {
       return (
         <>
           <button
             onClick={() => this.addSectionToCart(key)}
-            disabled={this.props.disableButton}
+            disabled={this.props.disableButton || this.buttonClicked > 0}
           >
             Add section to cart
           </button>{" "}
@@ -31,7 +30,7 @@ class Section extends React.Component {
     if (this.props.cartMode) {
       this.props.cart.map((element, i) => {
         this.props.sections.map((key, index) => {
-          if (element.location === key.location || this.buttonClicked === 1) {
+          if (element.location === key.location) {
             return true;
           }
           return false;

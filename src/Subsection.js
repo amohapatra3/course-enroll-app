@@ -2,13 +2,17 @@ import React from "react";
 import "./App.css";
 
 class Subsection extends React.Component {
+  constructor() {
+    super();
+    this.buttonClicked = 0;
+  }
   addButton(key) {
     if (this.props.cartMode) {
       return (
         <>
           <button
             onClick={() => this.addSubsectionToCart(key)}
-            disabled={this.props.disableButton}
+            disabled={this.props.disableButton || this.buttonClicked > 0}
           >
             Add subsection to cart
           </button>{" "}
@@ -19,6 +23,7 @@ class Subsection extends React.Component {
   }
 
   addSubsectionToCart(key) {
+    this.buttonClicked++;
     this.props.callbackFromSubsections(key);
   }
   render() {
