@@ -27,21 +27,22 @@ class Section extends React.Component {
     this.props.callbackFromSections(key);
   }
   disableButton() {
-    this.props.cart.map((element, i) => {
-      this.props.sections.map((key, index) => {
-        if (element.location === key.location) {
-          this.isSectionInCart = true;
-        } else {
-          this.isCourseInCart = false;
-        }
+    if (this.props.cartMode) {
+      this.props.cart.map((element, i) => {
+        this.props.sections.map((key, index) => {
+          if (element.location === key.location) {
+            this.isSectionInCart = true;
+          } else {
+            this.isSectionInCart = false;
+          }
+        });
       });
-    });
+      return this.isSectionInCart;
+    }
   }
   render() {
     let m = 0;
-    if (this.props.cartMode && this.props.cart.length === 0) {
-      this.isSectionInCart = false;
-    }
+
     return (
       <div>
         {this.props.sections.map((key, index) => (
@@ -63,7 +64,7 @@ class Section extends React.Component {
                   </ul>
                 );
               })}
-              {this.props.cartMode ? this.disableButton() : null}
+
               <h2> Subsections</h2>
               {key.subsections.length === 0 ? (
                 <span>None</span>
@@ -73,7 +74,7 @@ class Section extends React.Component {
                   data={key.subsections}
                   cartMode={this.props.cartMode}
                   callbackFromSubsections={this.props.callbackFromSubsections}
-                  disableButton={this.isSectionInCart}
+                  disableButton={this.disableButton()}
                   cart={this.props.cart}
                 />
               )}

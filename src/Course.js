@@ -52,16 +52,19 @@ class Course extends React.Component {
     }
   }
   disableButton() {
-    this.props.cart.map((element, i) => {
-      if (
-        element.instructor ===
-        "All " + this.props.data.number + " sections and subsections"
-      ) {
-        this.isCourseInCart = true;
-      } else {
-        this.isCourseInCart = false;
-      }
-    });
+    if (this.props.cartMode) {
+      this.props.cart.map((element, i) => {
+        if (
+          element.instructor ===
+          "All " + this.props.data.number + " sections and subsections"
+        ) {
+          this.isCourseInCart = true;
+        } else {
+          this.isCourseInCart = false;
+        }
+      });
+      return this.isCourseInCart;
+    }
   }
   accordionStyle() {
     return this.props.cartMode ? { maxWidth: "50%" } : null;
@@ -70,10 +73,6 @@ class Course extends React.Component {
     this.props.callbackFromCourses(this.props.data);
   }
   render() {
-    if (this.props.cartMode && this.props.cart.length === 0) {
-      this.isSectionInCart = false;
-    }
-
     return (
       <div>
         <Accordion style={this.accordionStyle()}>
@@ -89,13 +88,12 @@ class Course extends React.Component {
               Keywords: {this.props.data.keywords.join()} <br /> <br />
               Subject: {this.props.data.subject} <br /> <br />
               <br />
-              {this.props.cartMode ? this.disableButton() : null}
               <Section
                 sections={this.props.data.sections}
                 cartMode={this.props.cartMode}
                 callbackFromSections={this.props.callbackFromSections}
                 callbackFromSubsections={this.props.callbackFromSubsections}
-                disableButton={this.isCourseInCart}
+                disableButton={this.disableButton()}
                 cart={this.props.cart}
               />
             </Accordion.Body>
