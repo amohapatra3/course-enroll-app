@@ -59,8 +59,6 @@ class Course extends React.Component {
         "All " + this.props.data.number + " sections and subsections"
       ) {
         this.isCourseInCart = true;
-      } else {
-        this.isCourseInCart = false;
       }
     });
   }

@@ -29,10 +29,8 @@ class Section extends React.Component {
   disableButton() {
     this.props.cart.map((element, i) => {
       this.props.sections.map((key, index) => {
-        if (element.number === key.number) {
+        if (element.location === key.location) {
           this.isSectionInCart = true;
-        } else {
-          this.isSectionInCart = false;
         }
       });
     });
