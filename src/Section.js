@@ -9,6 +9,7 @@ class Section extends React.Component {
     this.isSectionInCart = false;
   }
   addButton(key) {
+    // console.log(this.props.disableButton);
     if (this.props.cartMode) {
       return (
         <>
@@ -33,8 +34,9 @@ class Section extends React.Component {
         this.props.sections.map((key, index) => {
           if (element.location === key.location) {
             this.isSectionInCart = true;
+          } else {
+            this.isSectionInCart = false;
           }
-          this.isSectionInCart = false;
         });
       });
       return this.isSectionInCart;
