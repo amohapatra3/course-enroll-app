@@ -44,10 +44,7 @@ class Course extends React.Component {
     if (this.props.cartMode) {
       return (
         <>
-          <button
-            onClick={() => this.addCourseToCart()}
-            disabled={this.buttonClicked > 0}
-          >
+          <button onClick={() => this.addCourseToCart()}>
             Add course to cart
           </button>{" "}
           <br /> <br />
@@ -67,8 +64,8 @@ class Course extends React.Component {
         }
         this.isCourseInCart = false;
       });
+      return this.isCourseInCart;
     }
-    return this.isCourseInCart;
   }
   accordionStyle() {
     return this.props.cartMode ? { maxWidth: "50%" } : null;

@@ -37,8 +37,8 @@ class Section extends React.Component {
           this.isSectionInCart = false;
         });
       });
+      return this.isSectionInCart;
     }
-    return this.isSectionInCart;
   }
   render() {
     let m = 0;
