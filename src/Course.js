@@ -7,6 +7,7 @@ class Course extends React.Component {
   constructor() {
     super();
     this.buttonClicked = 0;
+    this.isCourseInCart = false;
   }
   requisites() {
     let requisite = "";
@@ -62,11 +63,12 @@ class Course extends React.Component {
             "All " + this.props.data.number + " sections and subsections" ||
           this.buttonClicked === 1
         ) {
-          return true;
+          this.isCourseInCart = true;
         }
-        return false;
+        this.isCourseInCart = false;
       });
     }
+    return this.isCourseInCart;
   }
   accordionStyle() {
     return this.props.cartMode ? { maxWidth: "50%" } : null;

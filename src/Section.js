@@ -6,6 +6,7 @@ class Section extends React.Component {
   constructor() {
     super();
     this.buttonClicked = 0;
+    this.isSectionInCart = false;
   }
   addButton(key) {
     if (this.props.cartMode) {
@@ -13,7 +14,7 @@ class Section extends React.Component {
         <>
           <button
             onClick={() => this.addSectionToCart(key)}
-            disabled={this.props.disableButton || this.buttonClicked > 0}
+            disabled={this.props.disableButton}
           >
             Add section to cart
           </button>{" "}
@@ -31,12 +32,13 @@ class Section extends React.Component {
       this.props.cart.map((element, i) => {
         this.props.sections.map((key, index) => {
           if (element.location === key.location) {
-            return true;
+            this.isSectionInCart = true;
           }
-          return false;
+          this.isSectionInCart = false;
         });
       });
     }
+    return this.isSectionInCart;
   }
   render() {
     let m = 0;
