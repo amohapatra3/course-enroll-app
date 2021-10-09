@@ -75,6 +75,7 @@ class App extends React.Component {
     cartData.location = dataFromSections.location;
     cartData.courseName = " ";
     cartData.courseNumber = " ";
+    cartData.info = "All subsections of this section";
     this.state.allCourses.map((obj, index) => {
       Object.keys(obj.sections).forEach((element) => {
         if (

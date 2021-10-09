@@ -39,7 +39,9 @@ class Section extends React.Component {
   }
   render() {
     let m = 0;
-
+    if (this.props.cartMode && this.props.cart.length === 0) {
+      this.isSectionInCart = false;
+    }
     return (
       <div>
         {this.props.sections.map((key, index) => (

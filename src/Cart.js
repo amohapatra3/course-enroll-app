@@ -33,10 +33,12 @@ class Cart extends React.Component {
                   </ul>
                 );
               })}
+              <p key={item.info}>{item.info}</p>
               <button onClick={() => this.removeFromCart(item)}>
                 {" "}
                 Remove from cart
               </button>
+              <hr />
             </>
           );
         })}

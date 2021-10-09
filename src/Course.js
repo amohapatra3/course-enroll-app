@@ -53,10 +53,7 @@ class Course extends React.Component {
   }
   disableButton() {
     this.props.cart.map((element, i) => {
-      console.log(
-        element.instructor ===
-          "All " + this.props.data.number + " sections and subsections"
-      );
+      console.log(element.instructor);
       if (
         element.instructor ===
         "All " + this.props.data.number + " sections and subsections"
@@ -74,6 +71,10 @@ class Course extends React.Component {
     this.props.callbackFromCourses(this.props.data);
   }
   render() {
+    if (this.props.cartMode && this.props.cart.length === 0) {
+      this.isSectionInCart = false;
+    }
+
     return (
       <div>
         <Accordion style={this.accordionStyle()}>
