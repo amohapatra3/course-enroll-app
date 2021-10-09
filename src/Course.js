@@ -58,12 +58,10 @@ class Course extends React.Component {
           element.instructor ===
           "All " + this.props.data.number + " sections and subsections"
         ) {
-          this.isCourseInCart = true;
-        } else {
-          this.isCourseInCart = false;
+          return true;
         }
+        return false;
       });
-      return this.isCourseInCart;
     }
   }
   accordionStyle() {
