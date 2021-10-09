@@ -6,6 +6,7 @@ class Section extends React.Component {
   constructor(props) {
     super(props);
     this.isSectionInCart = false;
+    console.log(this.props.disableButton);
   }
   addButton(key) {
     if (this.props.cartMode) {
@@ -31,6 +32,8 @@ class Section extends React.Component {
       this.props.sections.map((key, index) => {
         if (element.instructor === key.instructor) {
           this.isSectionInCart = true;
+        } else {
+          this.isSectionInCart = false;
         }
       });
     });
@@ -59,7 +62,7 @@ class Section extends React.Component {
                   </ul>
                 );
               })}
-              {this.disableButton()}
+              {this.props.cartMode ? this.disableButton() : null}
               <h2> Subsections</h2>
               {key.subsections.length === 0 ? (
                 <span>None</span>

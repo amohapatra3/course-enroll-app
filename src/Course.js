@@ -7,7 +7,6 @@ class Course extends React.Component {
   constructor(props) {
     super(props);
     this.courseInCart = false;
-    console.log(this.props.cart);
   }
   requisites() {
     let requisite = "";
@@ -54,8 +53,11 @@ class Course extends React.Component {
   }
   disableButton() {
     this.props.cart.map((element, i) => {
+      console.log(element.courseName === this.props.data.name);
       if (element.courseName === this.props.data.name) {
         this.isCourseInCart = true;
+      } else {
+        this.isCourseInCart = false;
       }
     });
   }
@@ -81,7 +83,7 @@ class Course extends React.Component {
               Keywords: {this.props.data.keywords.join()} <br /> <br />
               Subject: {this.props.data.subject} <br /> <br />
               <br />
-              {this.disableButton()}
+              {this.props.cartMode ? this.disableButton() : null}
               <Section
                 sections={this.props.data.sections}
                 cartMode={this.props.cartMode}
