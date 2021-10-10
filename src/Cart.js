@@ -2,7 +2,6 @@ import React from "react";
 
 class Cart extends React.Component {
   removeFromCart(item) {
-    this.props.resetButton();
     this.props.callbackFromCart(
       this.props.cart.filter(
         (element) => element.courseNumber !== item.courseNumber

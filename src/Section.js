@@ -32,13 +32,21 @@ class Section extends React.Component {
     if (this.props.cartMode) {
       this.props.cart.map((element, i) => {
         this.props.sections.map((key, index) => {
-          if (element.location === key.location) {
+          console.log(element.time === key.time);
+          if (
+            element.time === key.time &&
+            element.instructor === key.instructor
+          ) {
             this.isSectionInCart = true;
           } else {
             this.isSectionInCart = false;
           }
+          console.log(element);
+          console.log(key);
+          console.log(this.isSectionInCart);
         });
       });
+
       return this.isSectionInCart;
     }
   }
