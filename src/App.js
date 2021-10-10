@@ -56,6 +56,9 @@ class App extends React.Component {
     cartData.instructor =
       "All " + cartData.courseNumber + " sections and subsections";
     cartData.time = {};
+    cartData.isCourse = true;
+    cartData.isSection = false;
+    cartData.isSubsection = false;
 
     if (
       this.state.cart.some(
@@ -79,6 +82,9 @@ class App extends React.Component {
     cartData.courseName = " ";
     cartData.courseNumber = " ";
     cartData.info = "All subsections of this section";
+    cartData.isCourse = false;
+    cartData.isSubsection = false;
+    cartData.isSection = true;
     this.state.allCourses.map((obj, index) => {
       Object.keys(obj.sections).forEach((element) => {
         if (
@@ -92,16 +98,29 @@ class App extends React.Component {
 
       return null;
     });
+
+    if (
+      this.state.cart.some(
+        (element) =>
+          element.isCourse && element.courseNumber === cartData.courseNumber
+      )
+    ) {
+      alert("Full course already added to cart");
+      return null;
+    }
     if (
       this.state.cart.some(
         (element) =>
           element.courseName === cartData.courseName &&
-          element.courseNumber === cartData.courseNumber
+          element.courseNumber === cartData.courseNumber &&
+          element.location === cartData.location &&
+          element.instructor === cartData.instructor
       )
     ) {
-      alert("item already in cart");
+      alert("item already in cart ");
       return null;
     }
+
     this.setState((prevState) => {
       return { cart: [...prevState.cart, cartData] };
     });
@@ -115,6 +134,9 @@ class App extends React.Component {
     cartData.instructor = " ";
     cartData.courseName = " ";
     cartData.courseNumber = " ";
+    cartData.isSubsection = true;
+    cartData.isSection = false;
+    cartData.isCourse = false;
     Object.values(this.state.allCourses).forEach((element) => {
       Object.keys(element.sections).forEach((data) => {
         element.sections[data].subsections.forEach((obj) => {
@@ -129,16 +151,31 @@ class App extends React.Component {
         });
       });
     });
+
+    if (
+      this.state.cart.some(
+        (element) =>
+          element.isSection &&
+          element.courseNumber === cartData.courseNumber &&
+          element.instructor === cartData.instructor
+      )
+    ) {
+      alert("Full section already added to cart");
+      return null;
+    }
     if (
       this.state.cart.some(
         (element) =>
           element.courseName === cartData.courseName &&
-          element.courseNumber === cartData.courseNumber
+          element.number === cartData.number &&
+          element.location === cartData.location &&
+          element.instructor === cartData.instructor
       )
     ) {
-      alert("item already in cart");
+      alert("item already in cart ");
       return null;
     }
+
     this.setState((prevState) => {
       return { cart: [...prevState.cart, cartData] };
     });

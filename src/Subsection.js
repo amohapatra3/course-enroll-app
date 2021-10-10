@@ -7,13 +7,12 @@ class Subsection extends React.Component {
     this.buttonClicked = 0;
   }
   addButton(key) {
-    console.log(this.props.disableButton);
     if (this.props.cartMode) {
       return (
         <>
           <button
             onClick={() => this.addSubsectionToCart(key)}
-            disabled={this.props.disableButton}
+            // disabled={this.props.disableButton}
           >
             Add subsection to cart
           </button>{" "}

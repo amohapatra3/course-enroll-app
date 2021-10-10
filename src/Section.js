@@ -9,13 +9,12 @@ class Section extends React.Component {
     this.isSectionInCart = false;
   }
   addButton(key) {
-    // console.log(this.props.disableButton);
     if (this.props.cartMode) {
       return (
         <>
           <button
             onClick={() => this.addSectionToCart(key)}
-            disabled={this.props.disableButton}
+            //disabled={this.props.disableButton}
           >
             Add section to cart
           </button>{" "}
@@ -28,24 +27,24 @@ class Section extends React.Component {
     this.buttonClicked++;
     this.props.callbackFromSections(key);
   }
-  disableButton() {
-    if (this.props.cartMode) {
-      this.props.cart.map((element, i) => {
-        this.props.sections.map((key, index) => {
-          if (
-            element.time === key.time &&
-            element.instructor === key.instructor
-          ) {
-            this.isSectionInCart = true;
-          } else {
-            this.isSectionInCart = false;
-          }
-        });
-      });
+  // disableButton() {
+  //   if (this.props.cartMode) {
+  //     this.props.cart.map((element, i) => {
+  //       this.props.sections.map((key, index) => {
+  //         if (
+  //           element.time === key.time &&
+  //           element.instructor === key.instructor
+  //         ) {
+  //           this.isSectionInCart = true;
+  //         } else {
+  //           this.isSectionInCart = false;
+  //         }
+  //       });
+  //     });
 
-      return this.isSectionInCart;
-    }
-  }
+  //     return this.isSectionInCart;
+  //   }
+  // }
   render() {
     let m = 0;
 
@@ -80,7 +79,7 @@ class Section extends React.Component {
                   data={key.subsections}
                   cartMode={this.props.cartMode}
                   callbackFromSubsections={this.props.callbackFromSubsections}
-                  disableButton={this.disableButton()}
+                  //disableButton={this.disableButton()}
                   cart={this.props.cart}
                 />
               )}

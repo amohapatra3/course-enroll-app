@@ -52,22 +52,22 @@ class Course extends React.Component {
       );
     }
   }
-  disableButton() {
-    if (this.props.cartMode) {
-      this.props.cart.map((element, i) => {
-        if (
-          element.instructor ===
-          "All " + this.props.data.number + " sections and subsections"
-        ) {
-          this.isCourseInCart = true;
-        } else {
-          this.isCourseInCart = false;
-        }
-      });
+  // disableButton() {
+  //   if (this.props.cartMode) {
+  //     this.props.cart.map((element, i) => {
+  //       if (
+  //         element.instructor ===
+  //         "All " + this.props.data.number + " sections and subsections"
+  //       ) {
+  //         this.isCourseInCart = true;
+  //       } else {
+  //         this.isCourseInCart = false;
+  //       }
+  //     });
 
-      return this.isCourseInCart;
-    }
-  }
+  //     return this.isCourseInCart;
+  //   }
+  // }
   accordionStyle() {
     return this.props.cartMode ? { maxWidth: "50%" } : null;
   }
@@ -95,7 +95,7 @@ class Course extends React.Component {
                 cartMode={this.props.cartMode}
                 callbackFromSections={this.props.callbackFromSections}
                 callbackFromSubsections={this.props.callbackFromSubsections}
-                disableButton={this.disableButton()}
+                //disableButton={this.disableButton()}
                 cart={this.props.cart}
               />
             </Accordion.Body>
