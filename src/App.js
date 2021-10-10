@@ -62,7 +62,8 @@ class App extends React.Component {
 
     if (
       this.state.cart.some(
-        (element) => element.courseName === cartData.courseName
+        (element) =>
+          element.courseName === cartData.courseName && element.isCourse
       )
     ) {
       alert("item already in cart");
@@ -112,7 +113,7 @@ class App extends React.Component {
       this.state.cart.some(
         (element) =>
           element.courseName === cartData.courseName &&
-          element.courseNumber === cartData.courseNumber &&
+          element.number === cartData.number &&
           element.location === cartData.location &&
           element.instructor === cartData.instructor
       )
