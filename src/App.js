@@ -50,13 +50,22 @@ class App extends React.Component {
   };
 
   callbackFromCourses = (dataFromCourses) => {
+    let cartData = {};
+    cartData.courseName = dataFromCourses.name;
+    cartData.courseNumber = dataFromCourses.number;
+    cartData.instructor =
+      "All " + cartData.courseNumber + " sections and subsections";
+    cartData.time = {};
+
+    if (
+      this.state.cart.some(
+        (element) => element.courseName === cartData.courseName
+      )
+    ) {
+      alert("item already in cart");
+      return null;
+    }
     this.setState((prevState) => {
-      let cartData = {};
-      cartData.courseName = dataFromCourses.name;
-      cartData.courseNumber = dataFromCourses.number;
-      cartData.instructor =
-        "All " + cartData.courseNumber + " sections and subsections";
-      cartData.time = {};
       return { cart: [...prevState.cart, cartData] };
     });
   };
@@ -83,7 +92,16 @@ class App extends React.Component {
 
       return null;
     });
-
+    if (
+      this.state.cart.some(
+        (element) =>
+          element.courseName === cartData.courseName &&
+          element.courseNumber === cartData.courseNumber
+      )
+    ) {
+      alert("item already in cart");
+      return null;
+    }
     this.setState((prevState) => {
       return { cart: [...prevState.cart, cartData] };
     });
@@ -111,7 +129,16 @@ class App extends React.Component {
         });
       });
     });
-
+    if (
+      this.state.cart.some(
+        (element) =>
+          element.courseName === cartData.courseName &&
+          element.courseNumber === cartData.courseNumber
+      )
+    ) {
+      alert("item already in cart");
+      return null;
+    }
     this.setState((prevState) => {
       return { cart: [...prevState.cart, cartData] };
     });
