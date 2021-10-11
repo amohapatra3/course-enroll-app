@@ -152,6 +152,15 @@ class App extends React.Component {
         });
       });
     });
+    if (
+      this.state.cart.some(
+        (element) =>
+          element.isCourse && element.courseNumber === cartData.courseNumber
+      )
+    ) {
+      alert("Full course already added to cart");
+      return null;
+    }
 
     if (
       this.state.cart.some(
