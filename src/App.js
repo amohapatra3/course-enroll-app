@@ -135,6 +135,7 @@ class App extends React.Component {
     cartData.instructor = " ";
     cartData.courseName = " ";
     cartData.courseNumber = " ";
+    cartData.sectionNumber = " ";
     cartData.isSubsection = true;
     cartData.isSection = false;
     cartData.isCourse = false;
@@ -146,6 +147,7 @@ class App extends React.Component {
             obj.number === cartData.number
           ) {
             cartData.instructor = element.sections[data].instructor;
+            cartData.sectionNumber = element.sections[data].number;
             cartData.courseName = element.name;
             cartData.courseNumber = element.number;
           }
@@ -230,7 +232,7 @@ class App extends React.Component {
                 cart={this.state.cart}
               />
 
-              <div>
+              <div style={{ marginRight: "5em" }}>
                 <Cart
                   data={this.state.filteredCourses}
                   cart={this.state.cart}

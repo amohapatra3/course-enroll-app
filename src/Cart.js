@@ -20,6 +20,7 @@ class Cart extends React.Component {
               </p>
               <p key={item.instructor}>{item.instructor}</p>
               <p key={item.location}>{item.location}</p>
+              <p key={item.sectionNumber}>{item.sectionNumber}</p>
               <p key={item.number}>{item.number}</p>
 
               {Object.keys(item.time).map((day, j) => {
