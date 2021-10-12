@@ -82,7 +82,11 @@ class App extends React.Component {
     cartData.location = dataFromSections.location;
     cartData.courseName = " ";
     cartData.courseNumber = " ";
-    cartData.info = "All subsections of this section";
+    if (dataFromSections.subsections.length > 0) {
+      cartData.info = "All subsections of this section";
+    } else {
+      cartData.info = " ";
+    }
     cartData.isCourse = false;
     cartData.isSubsection = false;
     cartData.isSection = true;
