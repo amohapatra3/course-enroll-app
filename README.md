@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6003491&assignment_repo_type=AssignmentRepo)
 # Homework: React 2 α (6 Points Total)
 
 This assignment is meant to introduce you to more features of React. This is the second α, feature based, assignment in which you will extend the features of a course guide application. This application uses a limited quantity of modified data from the UW-Madison course information database. With this assignment, you will extend the features of React 1 α to create a course recommendation system.
