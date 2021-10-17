@@ -12,6 +12,7 @@ class App extends React.Component {
       allCourses: [],
       filteredCourses: [],
       subjects: [],
+      keywords: [],
       cartCourses: {},
     };
   }
@@ -28,9 +29,20 @@ class App extends React.Component {
       allCourses: courseData,
       filteredCourses: courseData,
       subjects: this.getSubjects(courseData),
+      keywords: this.getKeywords(courseData),
     });
   }
+  getKeywords(data) {
+    let keywords = [];
+    keywords.push("All");
+    for (let i = 0; i < data.length; i++) {
+      data[i].keywords.forEach((element) => {
+        if (keywords.indexOf(element) === -1) keywords.push(element);
+      });
+    }
 
+    return keywords;
+  }
   getSubjects(data) {
     let subjects = [];
     subjects.push("All");
@@ -184,7 +196,9 @@ class App extends React.Component {
               setCourses={(courses) => this.setCourses(courses)}
               courses={this.state.allCourses}
               subjects={this.state.subjects}
+              keywords={this.state.keywords}
             />
+
             <div style={{ marginLeft: "20vw" }}>
               <CourseArea
                 data={this.state.filteredCourses}

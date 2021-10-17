@@ -1,6 +1,13 @@
 class SearchAndFilter {
-  searchAndFilter(courses, search, subject, minimumCredits, maximumCredits) {
-    if (subject !== "" && search !== null) {
+  searchAndFilter(
+    courses,
+    search,
+    subject,
+    keywords,
+    minimumCredits,
+    maximumCredits
+  ) {
+    if (subject !== "" && search !== null && keywords !== "") {
       let coursesAfterSearch = [];
 
       for (const course of courses) {
@@ -23,6 +30,19 @@ class SearchAndFilter {
       courses = coursesAfterSubject;
     }
 
+    if (keywords !== "All") {
+      let coursesAfterKeywords = [];
+
+      for (const course of courses) {
+        for (const keyword of course.keywords) {
+          if (keyword === keywords) {
+            coursesAfterKeywords.push(course);
+            break;
+          }
+        }
+      }
+      courses = coursesAfterKeywords;
+    }
     if (minimumCredits !== "") {
       let coursesAfterMinimumCredits = [];
 

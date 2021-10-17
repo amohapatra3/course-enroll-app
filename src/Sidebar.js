@@ -13,6 +13,7 @@ class Sidebar extends React.Component {
     this.minimumCredits = React.createRef();
     this.maximumCredits = React.createRef();
     this.search = React.createRef();
+    this.interestArea = React.createRef();
   }
 
   setCourses() {
@@ -26,6 +27,7 @@ class Sidebar extends React.Component {
           this.props.courses,
           this.search.current.value,
           this.subject.current.value,
+          this.interestArea.current.value,
           this.minimumCredits.current.value,
           this.maximumCredits.current.value
         )
@@ -73,7 +75,13 @@ class Sidebar extends React.Component {
 
     return subjectOptions;
   }
-
+  getInterestAreaOptions() {
+    let interestAreas = [];
+    for (const interestArea of this.props.keywords) {
+      interestAreas.push(<option key={interestArea}>{interestArea}</option>);
+    }
+    return interestAreas;
+  }
   render() {
     return (
       <>
@@ -113,6 +121,16 @@ class Sidebar extends React.Component {
                   onChange={() => this.setCourses()}
                 >
                   {this.getSubjectOptions()}
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId="formInterestAreas">
+                <Form.Label>Interest Areas</Form.Label>
+                <Form.Control
+                  as="select"
+                  ref={this.interestArea}
+                  onChange={() => this.setCourses()}
+                >
+                  {this.getInterestAreaOptions()}
                 </Form.Control>
               </Form.Group>
 
