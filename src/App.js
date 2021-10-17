@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import CourseArea from "./CourseArea";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-
+import CompletedCourse from "./Completed";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -204,6 +204,15 @@ class App extends React.Component {
                 removeCartCourse={(data) => this.removeCartCourse(data)}
                 cartCourses={this.state.cartCourses}
               />
+            </div>
+          </Tab>
+          <Tab
+            eventKey="completed"
+            title="Completed Courses"
+            style={{ paddingTop: "5vh" }}
+          >
+            <div style={{ marginLeft: "20vw" }}>
+              <CompletedCourse />
             </div>
           </Tab>
         </Tabs>
