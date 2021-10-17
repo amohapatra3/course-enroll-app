@@ -4,7 +4,9 @@ import Sidebar from "./Sidebar";
 import CourseArea from "./CourseArea";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import CompletedCourse from "./Completed";
+import { Card } from "react-bootstrap";
+import Recommended from "./Recommended";
+import Completed from "./Completed";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +15,7 @@ class App extends React.Component {
       filteredCourses: [],
       subjects: [],
       keywords: [],
+      completedCourses: [],
       cartCourses: {},
     };
   }
@@ -24,14 +27,19 @@ class App extends React.Component {
   async loadInitialState() {
     let courseURL = "http://cs571.cs.wisc.edu:53706/api/react/classes";
     let courseData = await (await fetch(courseURL)).json();
-
+    const response = await fetch(
+      "http://cs571.cs.wisc.edu:53706/api/react/students/5022025924/classes/completed"
+    );
+    const data = await response.json();
     this.setState({
       allCourses: courseData,
       filteredCourses: courseData,
       subjects: this.getSubjects(courseData),
       keywords: this.getKeywords(courseData),
+      completedCourses: data.data,
     });
   }
+
   getKeywords(data) {
     let keywords = [];
     keywords.push("All");
@@ -178,6 +186,16 @@ class App extends React.Component {
     }
     return cartData;
   }
+  renderCompletedCourses() {
+    let completedCourseComponents = [];
+    for (let i = 0; i < this.state.completedCourses.length; ++i) {
+      completedCourseComponents.push(
+        <Completed data={this.state.completedCourses[i]} />
+      );
+    }
+    return completedCourseComponents;
+  }
+  callbackFromCompleted = (completedCourses, ratings) => {};
 
   render() {
     return (
@@ -226,8 +244,27 @@ class App extends React.Component {
             style={{ paddingTop: "5vh" }}
           >
             <div style={{ marginLeft: "20vw" }}>
-              <CompletedCourse />
+              <Card
+                style={{
+                  width: "calc(20vw - 5px)",
+                  marginLeft: "5px",
+                  height: "calc(100vh - 52px)",
+                  position: "fixed",
+                }}
+              >
+                <Card.Body>
+                  <Card.Title>Completed Courses</Card.Title>
+                  {this.renderCompletedCourses()}
+                </Card.Body>
+              </Card>
             </div>
+          </Tab>
+          <Tab
+            eventKey="recommended"
+            title="Recommended Courses"
+            style={{ paddingTop: "5vh" }}
+          >
+            <div style={{ marginLeft: "20vw" }}></div>
           </Tab>
         </Tabs>
       </>
