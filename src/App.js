@@ -7,7 +7,7 @@ import Tab from "react-bootstrap/Tab";
 import { Card } from "react-bootstrap";
 import Recommended from "./Recommended";
 import Completed from "./Completed";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
