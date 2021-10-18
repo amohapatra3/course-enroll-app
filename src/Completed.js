@@ -18,6 +18,8 @@ class Completed extends React.Component {
           <select
             onChange={(e) => {
               const selectedRating = e.target.value;
+              this.props.callbackFromCompleted(this.props.data, selectedRating);
+
               this.setState({ rating: selectedRating });
             }}
           >
@@ -28,7 +30,6 @@ class Completed extends React.Component {
             <option>4</option>
             <option>5</option>
           </select>
-          {this.props.callbackFromCompleted(this.props.data, this.state.rating)}
         </div>
       </>
     );

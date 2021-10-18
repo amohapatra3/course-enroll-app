@@ -190,9 +190,6 @@ class App extends React.Component {
   }
 
   callbackFromCompleted = (completedCourse, rating) => {
-    if (rating < 4) {
-      return null;
-    }
     let incompleteCourses = [];
     let keywords = [];
     this.state.allCourses.forEach((element) => {
@@ -203,13 +200,28 @@ class App extends React.Component {
       }
     });
     incompleteCourses.forEach((element) => {
-      for (const keyword of element.keywords) {
-        if (keywords.includes(keyword)) {
+      for (let i = 0; i < element.keywords.length; ++i) {
+        if (rating !== "5" && this.state.recommendedCourses.length > 0) {
+          // eslint-disable-next-line no-loop-func
+          this.setState((prevState) => {
+            return {
+              recommendedCourses: prevState.recommendedCourses.filter(
+                (course) => !course.keywords.join().includes(keywords[i])
+              ),
+            };
+          });
+        }
+        if (
+          element.keywords.join().includes(keywords[i]) &&
+          !this.state.recommendedCourses.includes(element) &&
+          rating === "5"
+        ) {
           this.setState((prevState) => {
             return {
               recommendedCourses: [...prevState.recommendedCourses, element],
             };
           });
+          break;
         }
       }
     });
