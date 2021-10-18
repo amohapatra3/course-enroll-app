@@ -238,6 +238,15 @@ class App extends React.Component {
     }
     return completedCourseComponents;
   }
+  renderRecommendedCourses() {
+    let recommendedCourseComponents = [];
+    for (let i = 0; i < this.state.recommendedCourses.length; ++i) {
+      recommendedCourseComponents.push(
+        <Recommended data={this.state.recommendedCourses[i]} />
+      );
+    }
+    return recommendedCourseComponents;
+  }
 
   render() {
     console.log(this.state.recommendedCourses);
@@ -307,7 +316,14 @@ class App extends React.Component {
             title="Recommended Courses"
             style={{ paddingTop: "5vh" }}
           >
-            <div style={{ marginLeft: "20vw" }}></div>
+            <div style={{ marginLeft: "20vw" }}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Recommended Courses</Card.Title>
+                  {this.renderRecommendedCourses()}
+                </Card.Body>
+              </Card>
+            </div>
           </Tab>
         </Tabs>
       </>
