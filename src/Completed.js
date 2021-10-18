@@ -28,7 +28,7 @@ class Completed extends React.Component {
             <option>4</option>
             <option>5</option>
           </select>
-          {console.log(this.state.rating)}
+          {this.props.callbackFromCompleted(this.props.data, this.state.rating)}
         </div>
       </>
     );

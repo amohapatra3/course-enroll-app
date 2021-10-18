@@ -7,6 +7,7 @@ import Tab from "react-bootstrap/Tab";
 import { Card } from "react-bootstrap";
 import Recommended from "./Recommended";
 import Completed from "./Completed";
+import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class App extends React.Component {
       subjects: [],
       keywords: [],
       completedCourses: [],
+      recommendedCourses: [],
       cartCourses: {},
     };
   }
@@ -186,18 +188,47 @@ class App extends React.Component {
     }
     return cartData;
   }
+
+  callbackFromCompleted = (completedCourse, rating) => {
+    if (rating < 4) {
+      return null;
+    }
+    let incompleteCourses = [];
+    let keywords = [];
+    this.state.allCourses.forEach((element) => {
+      if (!this.state.completedCourses.includes(element.number)) {
+        incompleteCourses.push(element);
+      } else if (element.number === completedCourse) {
+        keywords = element.keywords;
+      }
+    });
+    incompleteCourses.forEach((element) => {
+      for (const keyword of element.keywords) {
+        if (keywords.includes(keyword)) {
+          this.setState((prevState) => {
+            return {
+              recommendedCourses: [...prevState.recommendedCourses, element],
+            };
+          });
+        }
+      }
+    });
+  };
   renderCompletedCourses() {
     let completedCourseComponents = [];
     for (let i = 0; i < this.state.completedCourses.length; ++i) {
       completedCourseComponents.push(
-        <Completed data={this.state.completedCourses[i]} />
+        <Completed
+          data={this.state.completedCourses[i]}
+          callbackFromCompleted={this.callbackFromCompleted}
+        />
       );
     }
     return completedCourseComponents;
   }
-  callbackFromCompleted = (completedCourses, ratings) => {};
 
   render() {
+    console.log(this.state.recommendedCourses);
     return (
       <>
         <Tabs

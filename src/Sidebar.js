@@ -128,7 +128,9 @@ class Sidebar extends React.Component {
                 <Form.Control
                   as="select"
                   ref={this.interestArea}
-                  onChange={() => this.setCourses()}
+                  onChange={() => {
+                    this.setCourses();
+                  }}
                 >
                   {this.getInterestAreaOptions()}
                 </Form.Control>
