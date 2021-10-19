@@ -51,13 +51,13 @@ class Course extends React.Component {
       </Card>
     );
   }
-  checkIfCourseIsTaken() {
-    if (!this.props.cartMode) {
-      if (this.props.completedCourses.includes(this.props.data.number)) {
-        alert("You have already taken this course");
-      }
-    }
-  }
+  // checkIfCourseIsTaken() {
+  //   if (!this.props.cartMode) {
+  //     if (this.props.completedCourses.includes(this.props.data.number)) {
+  //       alert("You have already taken this course");
+  //     }
+  //   }
+  // }
   checkCourseRequisites() {
     if (!this.props.cartMode) {
       let j = 0;
@@ -98,7 +98,7 @@ class Course extends React.Component {
     let buttonOnClick = () => {
       this.addCourse();
       this.checkCourseRequisites();
-      this.checkIfCourseIsTaken();
+      //this.checkIfCourseIsTaken();
     };
     let buttonText = "Add Course";
 

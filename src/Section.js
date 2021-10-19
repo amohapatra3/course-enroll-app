@@ -29,13 +29,13 @@ class Section extends React.Component {
       </Accordion.Item>
     );
   }
-  checkIfCourseIsTaken() {
-    if (!this.props.cartMode) {
-      if (this.props.completedCourses.includes(this.props.course.number)) {
-        alert("You have already taken this course");
-      }
-    }
-  }
+  // checkIfCourseIsTaken() {
+  //   if (!this.props.cartMode) {
+  //     if (this.props.completedCourses.includes(this.props.course.number)) {
+  //       alert("You have already taken this course");
+  //     }
+  //   }
+  // }
   checkCourseRequisites() {
     if (!this.props.cartMode) {
       let j = 0;
@@ -98,7 +98,7 @@ class Section extends React.Component {
     let buttonOnClick = (e) => {
       this.addSection(e, section);
       this.checkCourseRequisites();
-      this.checkIfCourseIsTaken();
+      // this.checkIfCourseIsTaken();
     };
     let buttonText = "Add Section";
 
