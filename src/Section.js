@@ -29,7 +29,45 @@ class Section extends React.Component {
       </Accordion.Item>
     );
   }
+  checkIfCourseIsTaken() {
+    if (!this.props.cartMode) {
+      if (this.props.completedCourses.includes(this.props.course.number)) {
+        alert("You have already taken this course");
+      }
+    }
+  }
+  checkCourseRequisites() {
+    if (!this.props.cartMode) {
+      let j = 0;
+      if (this.props.requisites === 0) {
+        return null;
+      } else if (
+        this.props.requisites === 1 &&
+        this.props.requisites[0].length === 1
+      ) {
+        if (
+          !this.props.completedCourses.includes(this.props.requisites[0][0])
+        ) {
+          alert("Course requisites not met");
+        }
+      } else {
+        this.props.requisites.forEach((element) => {
+          for (let index = 0; index < element.length; index++) {
+            if (
+              !this.props.completedCourses.includes(
+                this.props.requisites[j][index]
+              )
+            ) {
+              alert("Course requisites not met");
+              break;
+            }
+          }
 
+          j++;
+        });
+      }
+    }
+  }
   getSubsections() {
     let subsections = [];
 
@@ -43,6 +81,10 @@ class Section extends React.Component {
           cartCourses={this.props.cartCourses}
           courseKey={this.props.courseKey}
           sectionKey={this.props.sectionKey}
+          requisites={this.props.requisites}
+          cartMode={this.props.cartMode}
+          completedCourses={this.props.completedCourses}
+          course={this.props.course}
           subsectionKey={i}
         />
       );
@@ -53,7 +95,11 @@ class Section extends React.Component {
 
   getSectionButton(section) {
     let buttonVariant = "dark";
-    let buttonOnClick = (e) => this.addSection(e, section);
+    let buttonOnClick = (e) => {
+      this.addSection(e, section);
+      this.checkCourseRequisites();
+      this.checkIfCourseIsTaken();
+    };
     let buttonText = "Add Section";
 
     if (this.props.courseKey in this.props.cartCourses) {

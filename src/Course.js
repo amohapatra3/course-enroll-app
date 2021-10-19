@@ -51,10 +51,55 @@ class Course extends React.Component {
       </Card>
     );
   }
+  checkIfCourseIsTaken() {
+    if (!this.props.cartMode) {
+      if (this.props.completedCourses.includes(this.props.data.number)) {
+        alert("You have already taken this course");
+      }
+    }
+  }
+  checkCourseRequisites() {
+    if (!this.props.cartMode) {
+      let j = 0;
+      if (this.props.data.requisites.length === 0) {
+        return null;
+      } else if (
+        this.props.data.requisites.length === 1 &&
+        this.props.data.requisites[0].length === 1
+      ) {
+        if (
+          !this.props.completedCourses.includes(
+            this.props.data.requisites[0][0]
+          )
+        ) {
+          alert("Course requisites not met");
+        }
+      } else {
+        this.props.data.requisites.forEach((element) => {
+          for (let index = 0; index < element.length; index++) {
+            if (
+              !this.props.completedCourses.includes(
+                this.props.data.requisites[j][index]
+              )
+            ) {
+              alert("Course requisites not met");
+              break;
+            }
+          }
 
+          j++;
+        });
+      }
+    }
+  }
   getCourseButton() {
     let buttonVariant = "dark";
-    let buttonOnClick = () => this.addCourse();
+
+    let buttonOnClick = () => {
+      this.addCourse();
+      this.checkCourseRequisites();
+      this.checkIfCourseIsTaken();
+    };
     let buttonText = "Add Course";
 
     if (this.props.courseKey in this.props.cartCourses) {
@@ -82,6 +127,10 @@ class Course extends React.Component {
           removeCartCourse={this.props.removeCartCourse}
           cartCourses={this.props.cartCourses}
           courseKey={this.props.courseKey}
+          requisites={this.props.data.requisites}
+          completedCourses={this.props.completedCourses}
+          course={this.props.data}
+          cartMode={this.props.cartMode}
           sectionKey={i}
         />
       );

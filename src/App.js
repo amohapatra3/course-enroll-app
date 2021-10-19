@@ -276,6 +276,7 @@ class App extends React.Component {
                 addCartCourse={(data) => this.addCartCourse(data)}
                 removeCartCourse={(data) => this.removeCartCourse(data)}
                 cartCourses={this.state.cartCourses}
+                completedCourses={this.state.completedCourses}
               />
             </div>
           </Tab>

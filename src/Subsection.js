@@ -22,10 +22,52 @@ class Subsection extends React.Component {
       </Accordion.Item>
     );
   }
+  checkIfCourseIsTaken() {
+    if (!this.props.cartMode) {
+      if (this.props.completedCourses.includes(this.props.course.number)) {
+        alert("You have already taken this course");
+      }
+    }
+  }
+  checkCourseRequisites() {
+    if (!this.props.cartMode) {
+      let j = 0;
+      if (this.props.requisites === 0) {
+        return null;
+      } else if (
+        this.props.requisites === 1 &&
+        this.props.requisites[0].length === 1
+      ) {
+        if (
+          !this.props.completedCourses.includes(this.props.requisites[0][0])
+        ) {
+          alert("Course requisites not met");
+        }
+      } else {
+        this.props.requisites.forEach((element) => {
+          for (let index = 0; index < element.length; index++) {
+            if (
+              !this.props.completedCourses.includes(
+                this.props.requisites[j][index]
+              )
+            ) {
+              alert("Course requisites not met");
+              break;
+            }
+          }
 
+          j++;
+        });
+      }
+    }
+  }
   getSubsectionButton(section, subsection) {
     let buttonVariant = "dark";
-    let buttonOnClick = (e) => this.addSubsection(e, section, subsection);
+    let buttonOnClick = (e) => {
+      this.addSubsection(e, section, subsection);
+      this.checkIfCourseIsTaken();
+      this.checkCourseRequisites();
+    };
     let buttonText = "Add Subsection";
 
     if (this.props.courseKey in this.props.cartCourses) {

@@ -12,10 +12,12 @@ class CourseArea extends React.Component {
           <Course
             key={"course_" + i}
             data={this.props.data[i]}
+            cartMode={this.props.cartMode}
             courseKey={this.props.data[i].number}
             addCartCourse={(data) => this.props.addCartCourse(data)}
             removeCartCourse={(data) => this.props.removeCartCourse(data)}
             cartCourses={this.props.cartCourses}
+            completedCourses={this.props.completedCourses}
           />
         );
       }
