@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://cs571.cs.wisc.edu:53706/api/react/classes")
+    fetch("http://127.0.0.1:5000/api/react/classes")
       .then((res) => res.json())
       .then((data) =>
         this.setState({
