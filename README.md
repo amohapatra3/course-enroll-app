@@ -47,7 +47,7 @@ Each course is listed in an accordion display with a name and number, as shown b
 
 ![Course List](img/screenshot1.png)
 
-Click on the course you want to learn more about. You will see an expanded view, as shown below.
+Click the course you want to learn more about. You will see an expanded view, as shown below.
 
 ![Expanded view](img/screenshot2.png)
 
