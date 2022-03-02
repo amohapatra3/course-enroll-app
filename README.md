@@ -102,7 +102,7 @@ Follow these steps to add to the cart:
 
    - Click **Add subsection to cart** to add a specific course subsection to the cart.
 
-3. You will now see course information on the right hand side of the page. This list of information represents the cart, and it will reflect the button(s) you clicked. New additions will append to the end of the list.
+3. You will now see course information on the right-hand side of the page. This list of information represents the cart, and it will reflect the button(s) you clicked. New additions will append to the end of the list.
 
 ---
 
