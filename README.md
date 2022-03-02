@@ -1,82 +1,53 @@
-This code was written as part of an assignment for CS 571-Building User Interfaces at UW-Madison. Instructions for the assignment are as defined below. 
-# Assignment: React 1 α (5 Points Total)
+# Course search and enroll
 
-This assignment is meant to introduce you to more features of JavaScript, along with showing how a React project works. Additionally, this will introduce you to the different features of React, e.g. states, props, more modularized components etc. This project will be the first of a two part React project in which you will further extend your course management application. This application uses a limited quantity of modified data from the UW Madison course information database.
+This React application was made for a class project. Use this application to learn more about some courses offered by the University of Wisconsin-Madison.
 
-## Course Data
+## Overview
 
-The course data is being fetched from `http://cs571.cs.wisc.edu:53706/api/react/classes` and is formatted as follows:
+You can use this application to view course information, filter courses based on parameters, and add or remove courses to cart.
+
+## Getting started
+
+To use the app,follow these steps:
+
+- Open terminal and run the following command:
 
 ```
-[
-    {
-        "credits": <number of credits for the course>,
-        "description": <course description>,
-        "keywords": <1D list of string keywords>,
-        "name": <course name>,
-        "number": <unique course number>,
-        "requisites": <2D list of course requisites>,
-        "sections": [
-            {
-                "instructor": <instructor name>,
-                "location": <section location>,
-                "subsections": [
-                    {
-                        "location": <subsection location>,
-                       	"time": {
-                            <weekday>: <time range>, ...
-                        },
-    			"number": <subsection number>
-                    }
-                ],
-                "time": {
-                <weekday>: <time range>, ...
-                },
-		"number": <section number>
-            }, ...
-        ],
-        "subject": <course subject>
-    }, ...
-]
+git clone https://github.com/amohapatra3/course-enroll-app.git
+
 ```
 
-- The list of course requisites consists of 1D lists with AND operations between them. Each 1D list has OR operations between elements. For example: `[[A, B], [C, D, E], [F]]` means that the requisites are `(A OR B) AND (C OR D OR E) AND (F)`.
-- A course can have any number of sections, and each section can have any number of subsections. If the course contains subsections, the user must schedule exactly one subsection with its parent section.
-- Sections and subsections can have any number of times. Each time's key is a weekday in all lowercase ("monday", "tuesday", "wednesday", ...). Each time's value is a string with the following format: `"<12 hour time><am or pm> - <12 hour time><am or pm>"`. An example of this would be `"11:45am - 12:35pm"`.
-- Each course has exactly one subject
+- The command will create a new folder on your computer with the same name as the repository. Navigate to the folder by running the following command:
 
-Your project must be able to accept any data with the same format as above and the data located at `http://cs571.cs.wisc.edu:53706/api/react/classes`
+```
+cd course-enroll-app
+```
 
-## Problem 1 (1 point)
+- You will need npm packages to run the app. In order to install the necessary packages, run the following command:
 
-Required: `src/Course.js`<br>
-Recommended: `src/Section.js` `src/Subsection.js`
+```
+npm install
+```
 
-For this problem, you will be creating and organizing a way to represent the course data to the user.
+- Once you have installed the packages, run the following command:
 
-There is an empty div currently being displayed for each course. You will display ALL information associated with each course instead of this empty div.
+```
+npm start
+```
 
-You will be graded on successfully displaying ALL content for each course. Note that you can use a modal (popup) or accordion (collapsible) view, as long as there is a way to access all of the specified data about a given course from its component.
+- You will now see the app deployed on your default browser at `localhost:3000`
 
-- **(0.1 points)** Name
-- **(0.1 points)** Credits
-- **(0.1 points)** Course Number
-- **(0.1 points)** Course Description
-- **(0.1 points)** Requisites
-  - _Note: Must be displayed as described above e.g. `(A OR B) AND (C OR D OR E) AND (F)` for relevant courses, for no requisites display `None`._
-- **(0.1 points)** Keywords
-- **(0.05 points)** Subject
-- **(0.05 points)** Section Number
-- **(0.05 points)** Section Instructor
-- **(0.05 points)** Section Location
-- **(0.05 points)** Section Meeting Times (Weekdays + Times)
-- **(0.05 points)** Subsection Number
-- **(0.05 points)** Subsection Location
-- **(0.05 points)** Subsection Meeting Times (Weekdays + Times)
+## Viewing course information
 
-### Example Course Display
+Each course is listed in an accordion display with a name and number, as shown below.
 
-![Example Course Display](img/course-display-example.png)
+![Course List](img/screenshot1.png)
+
+Click on the course you want more information on. You will see an expanded view, as shown below.
+
+![Expanded view](img/screenshot2.png)
+
+You can find out course information such as credits, description, requisites, search keywords, and subject. In addition, you can also view sections and subsections for each course (if the course has subsections).
 
 ## Problem 2 (1.5 points)
 
