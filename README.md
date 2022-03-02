@@ -57,7 +57,7 @@ Section information includes section number, instructor, location and meeting ti
 
 ---
 
-## Using the search feature
+## Searching for courses to enroll in
 
 You can use the search feature to filter the course list based on specific parameters, as seen in the expanded view. The parameters include search keywords, subject, and credits. You can use these parameters in the following ways:
 
@@ -73,7 +73,7 @@ You can use the search feature to filter the course list based on specific param
 
 ---
 
-## Using the cart feature
+## Enrolling in courses
 
 The application allows you to add or remove courses from a cart. This simulates a real course enrollment system.
 
