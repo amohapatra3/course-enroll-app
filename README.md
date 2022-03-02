@@ -77,7 +77,7 @@ You can use the search feature to filter the course list based on specific param
 
 The application allows you to add or remove courses from a cart. This simulates a real course enrollment system.
 
-To use the cart, click on the **Cart** tab on the top left corner of the page. You can toggle between **Search** and **Cart** by clicking on either tab.
+To use the cart, click on the **Cart** tab in the top left corner of the page. You can toggle between **Search** and **Cart** by clicking on either tab.
 
 ### Adding to cart
 
