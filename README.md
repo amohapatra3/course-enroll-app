@@ -1,6 +1,6 @@
 # Course search and enroll
 
-This **ReactJS** application was made for a class project. It simulates a course enrollment system. Use this application to learn more about some of the courses offered by the University of Wisconsin-Madison.
+I worked on this **ReactJS** application for a class project. It simulates a course enrollment system. Use this application to learn more about some of the courses offered by the University of Wisconsin-Madison.
 
 ## Overview
 
@@ -67,7 +67,7 @@ You can use the search feature to filter the course list based on specific param
 
 - Specifying a range of credits. Only courses in the credit range, maximum and minimum inclusive, are displayed.
 
-  - If either value is unspecified, the other is assumed as a bound. For example, only specifying a minimum of 3 credits will display all courses with 3 credits or more.
+  - If either value is unspecified, the application assumes the other as a bound. For example, only specifying a minimum of 3 credits will display all courses with 3 credits or more.
 
   - Similarly, specifying only a maximum of 3 credits will display courses with 3 credits or less.
 
@@ -75,7 +75,7 @@ You can use the search feature to filter the course list based on specific param
 
 ## Utilizing the cart feature
 
-The application allows you to add or remove courses from a cart. This simulates real course enrollment systems.
+The application allows you to add or remove courses from a cart. This simulates a real course enrollment system.
 
 To use the cart, click on the **Cart** tab on the top left corner of the page. You can toggle between **Search** and **Cart** by clicking on either tab.
 
@@ -102,7 +102,7 @@ Follow these steps to add to the cart:
 
    - Click **Add subsection to cart** to add a specific course subsection to the cart.
 
-3. You will now be able to see course information on the right hand side of the page. This list of information represents the cart, and it will reflect the button(s) you clicked. New additions will append to the end of the list.
+3. You will now see course information on the right hand side of the page. This list of information represents the cart, and it will reflect the button(s) you clicked. New additions will append to the end of the list.
 
 ---
 
@@ -114,7 +114,7 @@ Click **Remove from cart** to remove courses from the cart.
 
 ### Stopping the application
 
-Simply closing the `localhost:3000` browser tab will not stop the application.
+Closing the `localhost:3000` browser tab will not stop the application.
 
 Open **terminal** and press <kbd>Control+C</kbd> to stop the application from running.
 
