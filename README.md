@@ -1,6 +1,6 @@
 # Course search and enroll
 
-I worked on this **ReactJS** application for a class project. It simulates a course enrollment system. Use this application to learn more about some courses offered by the University of Wisconsin-Madison.
+I worked on this **ReactJS** application for a class project. It simulates a course enrollment system. Use this application to learn more about courses offered by the University of Wisconsin-Madison.
 
 ## Overview
 
@@ -16,7 +16,6 @@ To use the app, follow these steps:
 
 ```
 git clone https://github.com/amohapatra3/course-enroll-app.git
-
 ```
 
 2. The command will create a new folder on your computer with the same name as the repository. Navigate to the folder by running the following command:
