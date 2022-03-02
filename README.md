@@ -1,10 +1,12 @@
 # Course search and enroll
 
-This React application was made for a class project. Use this application to learn more about some courses offered by the University of Wisconsin-Madison.
+This **ReactJS** application was made for a class project. Use this application to learn more about some courses offered by the University of Wisconsin-Madison.
 
 ## Overview
 
-You can use this application to view course information, filter courses based on parameters, and add or remove courses to cart.
+You can use this application to view course information, filter courses based on parameters, add courses to cart, and remove courses from the cart.
+
+---
 
 ## Getting started
 
@@ -37,6 +39,8 @@ npm start
 
 - You will now see the app deployed on your default browser at `localhost:3000`
 
+---
+
 ## Viewing course information
 
 Each course is listed in an accordion display with a name and number, as shown below.
@@ -47,84 +51,58 @@ Click on the course you want more information on. You will see an expanded view,
 
 ![Expanded view](img/screenshot2.png)
 
-You can find out course information such as credits, description, requisites, search keywords, and subject. In addition, you can also view sections and subsections for each course (if the course has subsections).
-
-## Problem 2 (1.5 points)
-
-Required: `src/SearchAndFilter.js`
-
-For this problem, you will be designing a search and filter method to decide which courses to display given a variety of inputs:
-
-- **(0.5 points) Credits**: only display courses that have an amount of credits within the selected credit range
-- **(0.5 points) Subject**: only display courses that match the selected subject
-- **(0.5 points) Search**: only display courses that have a keyword that contains (or is) the user input from the search bar.
-
-Providing multiple fields (e.g. both credits and subject) will return the intersection of the sets.
-
-## Problem 3 (2.5 points)
-
-Recommended: Modifications to `App.js` `CourseArea.js` `Course.js` `Section.js` `Subsection.js` and/or additional Component(s)
-
-For this problem, you will be creating a cart that users can **add** courses to and **remove** courses from.
-
-### Add to cart (1 point)
-
-The user should be able to add 3 slight variations of course information into the cart:
-
-1. A course with **all sections and subsections**
-2. A course with **one specific section** of a course with **all subsections**
-3. A course with **one specific section** that contains **one specific subsection**.
-
-For example, if course `CS 571` has section `Section 1` with subsections `Subsection 1` and `Subsection 2`, the user should be able to add either of the following with the format of: course -> sections -> subsections with one action (such as a button click)
-
-1. `CS 571` -> `All` -> `All`
-2. `CS 571` -> `Section 1` -> `All`
-3. `CS 571` -> `Section 1` -> `Subsection 1`
-
-### Remove from cart (1 point)
-
-The user should be able to remove 3 slight variations of course information from the cart:
-
-1. A course with **all sections and subsections**
-2. A course with **one specific section** of a course with **all subsections**
-3. A course with **one specific section** that contains **one specific subsection**.
-
-For example, if course `CS 571` has section `Section 1` with subsections `Subsection 1` and `Subsection 2`, the user should be able to remove either of the following with the format of: course -> sections -> subsections with one action (such as a button click)
-
-1. `CS 571` -> `All` -> `All`
-2. `CS 571` -> `Section 1` -> `All`
-3. `CS 571` -> `Section 1` -> `Subsection 1`
-
-### View courses in cart (0.5 points)
-
-The user should be able to view which courses are in the cart. From the cart, users should be able to remove courses as described above. For a course that only has some sections and/or subsections added to the cart, you can choose to display only these sections/subsections, or the data for the entire course while making it clear which sections/subsections the user has and has not added to the cart. When a course has been removed from the course, it should disapear immediately from the cart without any additional action from the user.
+The expanded view displays course information such as credits, description, requisites, search keywords, and subject. In addition, the view lists sections and subsections for each course (if the course has subsections).
 
 ---
 
-**Run `npm install` in the terminal after cloning to automatically install needed npm packages**
+## Using the search feature
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can use the search feature to filter the course list based on specific parameters, as seen in the expanded view. The parameters include search keywords, subject, and credits.
 
-## Available Scripts
+Enter a keyword in the search bar to only see courses tagged with the entered keyword.
 
-In the project directory, you can run:
+Select a subject from the dropdown menu to filter the course list by the selected subject.
 
-### `npm start`
+Specify a range of credits to see courses within the credit range, maximum and minimum inclusive.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If either value is unspecified, the other is assumed as a bound. For example, only specifying a minimum of 3 credits will display all courses with 3 credits or more.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Specifying only a maximum of 3 credits will display courses with 3 credits or less.
 
-## Potentially Helpful Links
+---
 
-- [Getting an Object's values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
-- [Getting an Object's keys](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
-- [An Array's forEach() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-- [forEach() with Arrays of Objects](https://stackoverflow.com/questions/16626735/how-to-loop-through-an-array-containing-objects-and-access-their-properties)
-- [Pushing elements onto an Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
-- [Joining Array elements into a String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
-- [String to Int (parseInt())](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
-- [React Bootstrap Modal View](https://react-bootstrap.github.io/components/modal/)
-- [React Bootstrap Accordion view ](https://react-bootstrap.github.io/components/accordion/)
+## Utilizing the cart feature
+
+The application allows you to add or remove courses from a cart. This simulates real course enrollment systems.
+
+To use the cart, click on the **Cart** tab on the top left corner of the page. You can toggle between **Search** and **Cart** by clicking on either tab.
+
+### Adding to cart
+
+You can add courses to the cart in 3 different configurations:
+
+1. Add all sections and subsections of a course.
+2. Add a specific section and all subsections within that section.
+3. Add a specific subsection of the course.
+
+Follow these steps to add a course to the cart:
+
+1. Click the course you want to add to the cart.
+2. The expanded view will show the same information as in the **Search** tab, with the addition of buttons.
+3. Click a button based on what course configuration you want to add to the cart.
+
+   - Click **Add course to cart** to add a course and all its sections and subsections to the cart.
+
+   **Note:** You will not be able to add individual course sections or subsections to the cart after this action.
+
+   - Click **Add section to cart** to add a specific section of the course, along with all its subsections.
+
+   **Note:** You will not be able to indidivually add subsections of the added section to the cart after this action.
+
+   - Click **Add subsection to cart** to add a specific course subsection to the cart.
+
+4. After clicking a button, you will be able to see course information in your cart on the right hand side of the page. This information will reflect the button you clicked. New additions will append to the end of the list.
+
+### Removing from cart
+
+Click **Remove from cart** to remove courses from the cart.
