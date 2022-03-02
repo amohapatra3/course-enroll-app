@@ -112,7 +112,7 @@ Click **Remove from cart** to remove courses from the cart.
 
 ---
 
-### Stopping the application
+## Stopping the application
 
 Closing the `localhost:3000` browser tab will not stop the application.
 
