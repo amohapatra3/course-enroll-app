@@ -61,15 +61,15 @@ Section information includes section number, instructor, location and meeting ti
 
 You can use the search feature to filter the course list based on specific parameters, as seen in the expanded view. The parameters include search keywords, subject, and credits. These parameters can be used in the following ways:
 
-- Entering a keyword in the search bar shows only those courses tagged with the entered keyword.
+- Entering a keyword in the search bar. Only courses with the entered keyword are displayed.
 
-Select a subject from the dropdown menu to filter the course list by the selected subject.
+- Selecting a subject from the dropdown menu. Only courses with the selected subject are displayed.
 
-Specify a range of credits to see courses within the credit range, maximum and minimum inclusive.
+- Specifying a range of credits. Only courses in the credit range, maximum and minimum inclusive, are displayed.
 
-If either value is unspecified, the other is assumed as a bound. For example, only specifying a minimum of 3 credits will display all courses with 3 credits or more.
+  - If either value is unspecified, the other is assumed as a bound. For example, only specifying a minimum of 3 credits will display all courses with 3 credits or more.
 
-Specifying only a maximum of 3 credits will display courses with 3 credits or less.
+  - Similarly, specifying only a maximum of 3 credits will display courses with 3 credits or less.
 
 ---
 
@@ -81,13 +81,13 @@ To use the cart, click on the **Cart** tab on the top left corner of the page. Y
 
 ### Adding to cart
 
-You can add courses to the cart in 3 different configurations:
+You can add to the cart in 3 different configurations:
 
 1. Add all sections and subsections of a course.
 2. Add a specific section and all subsections within that section.
 3. Add a specific subsection of the course.
 
-Follow these steps to add a course to the cart:
+Follow these steps to add to the cart:
 
 1. Click the course you want to add to the cart.
 2. Click a button in the expanded view based on what course configuration you want to add to the cart.
@@ -102,14 +102,20 @@ Follow these steps to add a course to the cart:
 
    - Click **Add subsection to cart** to add a specific course subsection to the cart.
 
-3. You will now be able to see course information on the right hand side of the page. This list of information represents your cart, and it will reflect the button(s) you clicked. New additions will append to the end of the list.
+3. You will now be able to see course information on the right hand side of the page. This list of information represents the cart, and it will reflect the button(s) you clicked. New additions will append to the end of the list.
+
+---
 
 ### Removing from cart
 
 Click **Remove from cart** to remove courses from the cart.
 
+---
+
 ### Stopping the application
 
-Closing the `localhost:3000` browser tab will not stop the application. Open **terminal** and press <kbd>Control+C</kbd> to stop the application from running.
+Simply closing the `localhost:3000` browser tab will not stop the application.
 
-Return to your browser and close the `localhost:3000` tab after stopping the application.
+Open **terminal** and press <kbd>Control+C</kbd> to stop the application from running.
+
+Return to your browser and close the `localhost:3000` tab **after** stopping the application.
