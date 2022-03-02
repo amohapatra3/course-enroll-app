@@ -1,6 +1,6 @@
 # Course search and enroll
 
-This **ReactJS** application was made for a class project. Use this application to learn more about some courses offered by the University of Wisconsin-Madison.
+This **ReactJS** application was made for a class project. It simulates a course enrollment system. Use this application to learn more about some of the courses offered by the University of Wisconsin-Madison.
 
 ## Overview
 
@@ -10,34 +10,34 @@ You can use this application to view course information, filter courses based on
 
 ## Getting started
 
-To use the app,follow these steps:
+To use the app, follow these steps:
 
-- Open terminal and run the following command:
+1. Open **terminal** and run the following command:
 
 ```
 git clone https://github.com/amohapatra3/course-enroll-app.git
 
 ```
 
-- The command will create a new folder on your computer with the same name as the repository. Navigate to the folder by running the following command:
+2. The command will create a new folder on your computer with the same name as the repository. Navigate to the folder by running the following command:
 
 ```
 cd course-enroll-app
 ```
 
-- You will need npm packages to run the app. In order to install the necessary packages, run the following command:
+3. You will need npm packages to run the app. In order to install the necessary packages, run the following command:
 
 ```
 npm install
 ```
 
-- Once you have installed the packages, run the following command:
+4. Once you have installed the packages, run the following command:
 
 ```
 npm start
 ```
 
-- You will now see the app deployed on your default browser at `localhost:3000`
+5. You will now see the app deployed on your default browser at `localhost:3000`.
 
 ---
 
@@ -47,19 +47,21 @@ Each course is listed in an accordion display with a name and number, as shown b
 
 ![Course List](img/screenshot1.png)
 
-Click on the course you want more information on. You will see an expanded view, as shown below.
+Click on the course you want to learn more about. You will see an expanded view, as shown below.
 
 ![Expanded view](img/screenshot2.png)
 
 The expanded view displays course information such as credits, description, requisites, search keywords, and subject. In addition, the view lists sections and subsections for each course (if the course has subsections).
 
+Section information includes section number, instructor, location and meeting times. Subsection information includes the subsection number, location, and meeting times.
+
 ---
 
 ## Using the search feature
 
-You can use the search feature to filter the course list based on specific parameters, as seen in the expanded view. The parameters include search keywords, subject, and credits.
+You can use the search feature to filter the course list based on specific parameters, as seen in the expanded view. The parameters include search keywords, subject, and credits. These parameters can be used in the following ways:
 
-Enter a keyword in the search bar to only see courses tagged with the entered keyword.
+- Entering a keyword in the search bar shows only those courses tagged with the entered keyword.
 
 Select a subject from the dropdown menu to filter the course list by the selected subject.
 
@@ -88,21 +90,26 @@ You can add courses to the cart in 3 different configurations:
 Follow these steps to add a course to the cart:
 
 1. Click the course you want to add to the cart.
-2. The expanded view will show the same information as in the **Search** tab, with the addition of buttons.
-3. Click a button based on what course configuration you want to add to the cart.
+2. Click a button in the expanded view based on what course configuration you want to add to the cart.
 
    - Click **Add course to cart** to add a course and all its sections and subsections to the cart.
 
-   **Note:** You will not be able to add individual course sections or subsections to the cart after this action.
+   **Note:** You will not be able to add individual sections or subsections of the added course to the cart after this action.
 
    - Click **Add section to cart** to add a specific section of the course, along with all its subsections.
 
-   **Note:** You will not be able to indidivually add subsections of the added section to the cart after this action.
+   **Note:** You will not be able to add individual subsections of the added section to the cart after this action.
 
    - Click **Add subsection to cart** to add a specific course subsection to the cart.
 
-4. After clicking a button, you will be able to see course information in your cart on the right hand side of the page. This information will reflect the button you clicked. New additions will append to the end of the list.
+3. You will now be able to see course information on the right hand side of the page. This list of information represents your cart, and it will reflect the button(s) you clicked. New additions will append to the end of the list.
 
 ### Removing from cart
 
 Click **Remove from cart** to remove courses from the cart.
+
+### Stopping the application
+
+Closing the `localhost:3000` browser tab will not stop the application. Open **terminal** and press <kbd>Control+C</kbd> to stop the application from running.
+
+Return to your browser and close the `localhost:3000` tab after stopping the application.
