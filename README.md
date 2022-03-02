@@ -16,7 +16,6 @@ To use the app, follow these steps:
 
 ```
    git clone https://github.com/amohapatra3/course-enroll-app.git
-
 ```
 
 2. The command will create a new folder on your computer with the same name as the repository. Navigate to the folder by running the following command:
