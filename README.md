@@ -1,6 +1,6 @@
 # Course search and enroll
 
-I worked on this **ReactJS** application for a class project. It simulates a course enrollment system. Use this application to learn more about some of the courses offered by the University of Wisconsin-Madison.
+I worked on this **ReactJS** application for a class project. It simulates a course enrollment system. Use this application to learn more about some courses offered by the University of Wisconsin-Madison.
 
 ## Overview
 
