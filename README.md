@@ -15,26 +15,26 @@ To use the app, follow these steps:
 1. Open **terminal** and run the following command:
 
 ```
-git clone https://github.com/amohapatra3/course-enroll-app.git
+   git clone https://github.com/amohapatra3/course-enroll-app.git
 
 ```
 
 2. The command will create a new folder on your computer with the same name as the repository. Navigate to the folder by running the following command:
 
 ```
-cd course-enroll-app
+    cd course-enroll-app
 ```
 
 3. You will need npm packages to run the app. In order to install the necessary packages, run the following command:
 
 ```
-npm install
+    npm install
 ```
 
 4. Once you have installed the packages, run the following command:
 
 ```
-npm start
+    npm start
 ```
 
 5. You will now see the app deployed on your default browser at `localhost:3000`.
@@ -73,7 +73,7 @@ You can use the search feature to filter the course list based on specific param
 
 ---
 
-## Utilizing the cart feature
+## Using the cart feature
 
 The application allows you to add or remove courses from a cart. This simulates a real course enrollment system.
 
@@ -83,9 +83,9 @@ To use the cart, click on the **Cart** tab in the top left corner of the page. Y
 
 You can add to the cart in 3 different configurations:
 
-1. Add all sections and subsections of a course.
-2. Add a specific section and all subsections within that section.
-3. Add a specific subsection of the course.
+- Add all sections and subsections of a course.
+- Add a specific section and all subsections within that section.
+- Add a specific subsection of the course.
 
 Follow these steps to add to the cart:
 
