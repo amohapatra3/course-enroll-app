@@ -59,17 +59,17 @@ Section information includes section number, instructor, location and meeting ti
 
 ## Using the search feature
 
-You can use the search feature to filter the course list based on specific parameters, as seen in the expanded view. The parameters include search keywords, subject, and credits. These parameters can be used in the following ways:
+You can use the search feature to filter the course list based on specific parameters, as seen in the expanded view. The parameters include search keywords, subject, and credits. You can use these parameters in the following ways:
 
-- Entering a keyword in the search bar. Only courses with the entered keyword are displayed.
+- Enter a keyword in the search bar. Only courses with the entered keyword are displayed.
 
-- Selecting a subject from the dropdown menu. Only courses with the selected subject are displayed.
+- Select a subject from the dropdown menu. Only courses with the selected subject are displayed.
 
-- Specifying a range of credits. Only courses in the credit range, maximum and minimum inclusive, are displayed.
+- Specify a range of credits. Only courses in the credit range, maximum and minimum inclusive, are displayed.
 
   - If either value is unspecified, the application assumes the other as a bound. For example, only specifying a minimum of 3 credits will display all courses with 3 credits or more.
 
-  - Similarly, specifying only a maximum of 3 credits will display courses with 3 credits or less.
+  - Similarly, specifying only a maximum of 3 credits will display courses with 3 credits or fewer.
 
 ---
 
