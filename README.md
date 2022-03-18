@@ -35,8 +35,7 @@ To use the app, follow these steps:
 ```
     npm start
 ```
-
-5. You will now see the app deployed on your default browser at `localhost:3000`.
+You will now see the app deployed on your default browser at `localhost:3000`.
 
 ---
 
