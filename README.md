@@ -1,6 +1,6 @@
-# Course search and enroll
+# Course search and enroll simulator
 
-I worked on this **ReactJS** application for a class project. It simulates a course enrollment system. Use this application to learn more about courses offered by the University of Wisconsin-Madison.
+I worked on this **ReactJS** application for a class project. The application simulates a course enrollment system. Use this application to learn more about courses offered by the University of Wisconsin-Madison.
 
 ## Overview
 
@@ -71,9 +71,9 @@ You can use the search feature to filter the course list based on specific param
 
 ---
 
-## Enrolling in courses
+## Updating cart with courses
 
-The application allows you to add or remove courses from a cart. This simulates a real course enrollment system.
+The application allows you to add or remove courses from a cart. This simulates a real course enrollment system, where a user would update a cart with courses and proceed to enroll in the courses from the cart.
 
 To use the cart, click on the **Cart** tab in the top left corner of the page. You can toggle between **Search** and **Cart** by clicking on either tab.
 
