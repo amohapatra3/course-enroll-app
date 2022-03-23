@@ -112,8 +112,4 @@ Click **Remove from cart** to remove courses from the cart.
 
 ## Stopping the application
 
-Closing the `localhost:3000` browser tab will not stop the application.
-
-Open **terminal** and press <kbd>Control+C</kbd> to stop the application from running.
-
-Return to your browser and close the `localhost:3000` tab **after** stopping the application.
+Closing the `localhost:3000` browser tab will not stop the application. Open **terminal** and press <kbd>Control+C</kbd> to stop the application from running. Return to your browser and close the `localhost:3000` tab **after** stopping the application.
