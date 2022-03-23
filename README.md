@@ -4,7 +4,7 @@ I worked on this **ReactJS** application for a class project. The application si
 
 ## Overview
 
-While you cannot enroll in a course using this application, you can view course information, filter courses based on parameters, add courses to cart, and remove courses from the cart.
+While you cannot enroll in a course using this application, you can view course information, filter courses based on parameters, and update a cart with courses.
 
 ---
 
