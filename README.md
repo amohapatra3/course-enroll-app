@@ -51,7 +51,7 @@ Click the course you want to learn more about. You will see an expanded view, as
 
 The expanded view displays course information such as credits, description, requisites, search keywords, and subject. In addition, the view lists sections and subsections for each course (if the course has subsections).
 
-Section information includes section number, instructor, location and meeting times. Subsection information includes the subsection number, location, and meeting times.
+Section information includes section number, instructor, location, and meeting times. Subsection information includes the subsection number, location, and meeting times.
 
 ---
 
@@ -100,13 +100,13 @@ Follow these steps to add to the cart:
 
    - Click **Add subsection to cart** to add a specific course subsection to the cart.
 
-3. You will now see course information on the right-hand side of the page in the form of a list. This list of information represents the cart, and it will reflect the button(s) you clicked. For instance, the information you see when adding an entire course is high-level (course name and number, accompanied by a message indicating all sections and subsections are added). Information when adding a section or subsection is more specific. New additions will append to the end of the list.
+3. You will now see course information on the right-hand side of the page in the form of a list. This list of information represents the cart, and it will reflect the button(s) you clicked. For instance, the information you see when adding an entire course is high-level (course name and number, accompanied by a message indicating all sections and subsections are added). Information when adding a section or subsection is more specific, including details like location and timings. New additions will append to the end of the list.
 
 ---
 
 ### Removing from cart
 
-Click **Remove from cart** to remove courses from the cart. 
+Click **Remove from cart** to remove courses from the cart. This operation will remove all instances (full course, section, subsection) of a course from the cart.  
 
 ---
 
