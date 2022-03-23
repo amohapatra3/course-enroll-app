@@ -106,7 +106,7 @@ Follow these steps to add to the cart:
 
 ### Removing from cart
 
-Click **Remove from cart** to remove courses from the cart.
+Click **Remove from cart** to remove courses from the cart. This will remove all sections and subsections of a course as well. 
 
 ---
 
